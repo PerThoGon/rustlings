@@ -5,7 +5,6 @@
 // Execute `rustlings hint enums3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 // WRITEUP
 // Dans ce code il nous est demandé de remplir l'enumération `Message` et la

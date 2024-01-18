@@ -7,7 +7,16 @@
 //
 // Execute `rustlings hint vecs2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+
+// WRITEUP
+// Dans ce code, il nous est demandé de multiplié chaque élément du vecteur par
+// 2 de deux manières différentes.
+// La première méthode consiste à utiliser une boucle et d'utiliser un pointeur
+// sur `element` pour le déférencer du vecteur et le multiplier par 2.
+// La second méthode consiste à utiliser map qui est appelé sur l'itérateur du
+// vecteur qui va ensuite retourner le résultat de la multiplication et rassembler
+// les résultats grâce à la méthode `collect`.
+
 
 fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
     for element in v.iter_mut() {
