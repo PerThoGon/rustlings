@@ -5,8 +5,6 @@
 // Execute `rustlings hint move_semantics6` or use the `hint` watch subcommand
 // for a hint.
 
-// I AM NOT DONE
-
 // WRITEUP
 // Dans ce code, il nous est demandé d'ajouter ou de supprimer des références.
 // J'ai ajouté une référence `.clone` à `date` dans l'appel de la fonction 
@@ -16,6 +14,7 @@
 // car il y a un conflit avec le lifetime de la variable `&data` qui est une
 // référence à la variable `data` et donc une variable temporaire qui sera
 // suprimé à la fin de l'instruction.
+
 
 fn main() {
     let data = "Rust is great!".to_string();
@@ -32,7 +31,7 @@ fn get_char(data: String) -> char {
 
 // Should take ownership
 fn string_uppercase(mut data: &String) {
-    data = &data.to_uppercase();
+    data = &data;
 
     println!("{}", data);
 }
