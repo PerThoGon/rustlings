@@ -6,14 +6,21 @@
 // Execute `rustlings hint generics2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
-struct Wrapper {
-    value: u32,
+// WRITEUP
+// Le but de cet exercice était de remplacer le type `u32` en un type générique.
+// Pour cela j'ai créé un type générique `T` pour qu'il contenir une valeur de
+// n'importe quel type. Pour ajouter un type générique, il ne faut pas oublier
+// d'ajouter `<T>>` après la déclaration de l'implémentation, après nom de cette
+// implémentation et après le nom de la structure.
+
+
+struct Wrapper<T> {
+    value: T,
 }
 
-impl Wrapper {
-    pub fn new(value: u32) -> Self {
+impl<T> Wrapper<T> {
+    pub fn new(value: T) -> Self {
         Wrapper { value }
     }
 }
