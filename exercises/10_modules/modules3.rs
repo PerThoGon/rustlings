@@ -8,10 +8,18 @@
 // Execute `rustlings hint modules3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
+//WRITEUP
+// Il nous est demandé d'ajoute les librairies SystemTime et UNIX_EPOCH depuis
+// le module std::time. 
+// Comme ils font parti du même module, on peut les mettre entre crochets pour
+// faire qu'une seule ligne d'importation.
+
+
 
 // TODO: Complete this use statement
-use ???
+use std::time::{SystemTime, UNIX_EPOCH};
+// use std::time::UNIX_EPOCH;
 
 fn main() {
     match SystemTime::now().duration_since(UNIX_EPOCH) {
