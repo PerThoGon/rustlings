@@ -9,7 +9,23 @@
 // Execute `rustlings hint errors6` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
+// WRITEUP
+// Dans ce code, il nous était demandé dans un premier temps de créer une nouvelle
+// fonction de conversion d'erreur appelé `from_parseint` dans l'implémentation
+// `ParsePosNonzeroError`.
+// Pour cela j'ai repris le code de la fonction `from_creation` et j'y ai modifié
+// les variables en paramètres et en sortie en fonction de l'enumération
+// `ParsePosNonzeroError`.
+// Dans un second temps il nou était demandé de modifier la ligne 
+// `let x: i64 = s.parse().unwrap();` afin de retourner une erreur au lieu de
+// paniquer lorsque `parse()` retournait une erreur.
+// Pour cela, j'ai ajouté la méthode `map_err` pour transformer l'erreur de type
+// `ParseIntError` en `ParsePosNonzeroError` grâce à l'appel de la fonctionn
+// `from_parseint`.
+// De plus, il faut ajouter le `?` pour que si une erreur se produit, elle soit
+// retourné directement.
+
 
 use std::num::ParseIntError;
 
@@ -26,12 +42,15 @@ impl ParsePosNonzeroError {
     }
     // TODO: add another error conversion function here.
     // fn from_parseint...
+    fn from_parseint(err: ParseIntError) -> ParsePosNonzeroError {
+        ParsePosNonzeroError::ParseInt(err)
+    }
 }
 
 fn parse_pos_nonzero(s: &str) -> Result<PositiveNonzeroInteger, ParsePosNonzeroError> {
     // TODO: change this to return an appropriate error instead of panicking
     // when `parse()` returns an error.
-    let x: i64 = s.parse().unwrap();
+    let x: i64 = s.parse().map_err(ParsePosNonzeroError::from_parseint)?;
     PositiveNonzeroInteger::new(x).map_err(ParsePosNonzeroError::from_creation)
 }
 

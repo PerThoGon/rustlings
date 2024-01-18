@@ -22,7 +22,6 @@
 // Execute `rustlings hint errors5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 use std::error;
 use std::fmt;
@@ -43,6 +42,8 @@ use std::num::ParseIntError;
 // Result<(),Box<dyn error::Error>> le code fonctionne. De plus en realisant quelques recherches on
 // comprend que dyn est un keyword lie aux traits cf https://doc.rust-lang.org/std/keyword.dyn.html
 // il est donc logique de mettre un trait derriere le keyword dyn 
+
+
 fn main() -> Result<(), Box<dyn error::Error>> {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
