@@ -3,7 +3,6 @@
 // Execute `rustlings hint functions5` or use the `hint` watch subcommand for a
 // hint.
 
-
 fn main() {
     let answer = square(3);
     println!("The square of 3 is {}", answer);
@@ -12,3 +11,9 @@ fn main() {
 fn square(num: i32) -> i32 {
     num * num
 }
+
+
+// WRITEUP
+// Dans ce code, la fonction square ne retrounait rien car il y avait un ";"
+// mais pas de "return". J'ai choisi de le supprimé, mais il était possible
+// d'ajouter return devant "num*num"

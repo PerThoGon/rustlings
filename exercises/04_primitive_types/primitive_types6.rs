@@ -6,6 +6,7 @@
 // Execute `rustlings hint primitive_types6` or use the `hint` watch subcommand
 // for a hint.
 
+// I AM NOT DONE
 
 #[test]
 fn indexing_tuple() {
@@ -16,3 +17,6 @@ fn indexing_tuple() {
     assert_eq!(2, second,
         "This is not the 2nd number in the tuple!")
 }
+
+
+// WRITEUP

@@ -7,12 +7,27 @@
 
 // I AM NOT DONE
 
+// WRITEUP
+// Dans ce code il nous est demandé de remplir l'enumération `Message` et la
+// fonction `process`.
+// J'ai rempli l'enumération `Message` en me basant sur la structure `State`
+// Puis pour la fonction `process`, j'ai fait un match de `message` comme
+// demandé pour y traiter les différents types de messages défini dans
+// l'enumération `Message` en les associant aux bonnes fonctions présentes dans
+// l'implémentation `States`.
+// On peut noter qu'un dérérencement de la variable `s` est nécessaire pour
+// récupérer la chaine de caractères de la méthode `echo` tout comme sa
+// convertion en String car cette méthode est appelé avec cette nouvelle String.
+// De plus, il ne faut pas oublier la synthaxe du tuple avec les doubles
+// parenthèses pour l'argument de la méthode change_color.
+
+
 enum Message {
     // TODO: implement the message variant types based on their usage below
     Quit,
     Echo(String),
     Move(Point),
-    ChangeColor(i64,i64,i64),
+    ChangeColor(u8, u8, u8),
 }
 
 struct Point {
@@ -52,7 +67,7 @@ impl State {
             Message::Quit => self.quit(),
             Message::Echo(s) => self.echo((*s).to_string()),
             Message::Move(p) => self.move_position(p),
-            Message::ChangeColor(_, _, _) => self.change_color(self.color),
+            Message::ChangeColor(r, g, b) => self.change_color((r, g, b)),
         }
     }
 }
@@ -81,3 +96,5 @@ mod tests {
         assert_eq!(state.message, "Hello world!");
     }
 }
+
+

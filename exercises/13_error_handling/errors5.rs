@@ -29,7 +29,21 @@ use std::fmt;
 use std::num::ParseIntError;
 
 // TODO: update the return type of `main()` to make this compile.
-fn main() -> Result<(), Box<dyn ???>> {
+// Dans cet exercice nous devons changer le type de retour de main, en modifiant uniquement le type
+// de l erreur dans l enumeration Result 
+// La fonction main peut retourner deux erreurs differentes, en effet parse peut retourner une
+// erreur ce qui se voit par le point d interrogation apres la ligne 
+// let x : i64 = pretend_user_input.parse()?; 
+// De meme pour la ligne suivante. 
+// Une premiere tentative serait de remplacer les points d interrogations dans Box par le type
+// Error, mais il necessiterait un import en plus ce qui n est pas le sujet de cet exercice  
+// On remarque alors que le type creationError implemente display afin d implementer le trait
+// error::Error
+// En donnant a main le type de retour
+// Result<(),Box<dyn error::Error>> le code fonctionne. De plus en realisant quelques recherches on
+// comprend que dyn est un keyword lie aux traits cf https://doc.rust-lang.org/std/keyword.dyn.html
+// il est donc logique de mettre un trait derriere le keyword dyn 
+fn main() -> Result<(), Box<dyn error::Error>> {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
