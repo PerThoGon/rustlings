@@ -5,11 +5,17 @@
 // Execute `rustlings hint lifetimes3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
-struct Book {
-    author: &str,
-    title: &str,
+// WRITEUP
+// Dans cet exercice, les variables de la structure `Book` ne possèdent pas de
+// spécification de leur durée de vie.
+// J'ai donc spécifié leur durée de vie avec la syntaxe `<'a>` pour le nom de la
+// structure et `&'a` avant le type de chaque variables
+
+
+struct Book<'a> {
+    author: &'a str,
+    title: &'a str,
 }
 
 fn main() {
